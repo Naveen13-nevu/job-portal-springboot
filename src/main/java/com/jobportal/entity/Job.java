@@ -15,7 +15,7 @@ public class Job {
     private String location;
     private double salary;
 
-    
+   
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

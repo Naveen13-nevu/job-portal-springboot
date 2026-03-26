@@ -22,8 +22,12 @@ public class ApplicationService {
 
     public Application apply(Long userId, Long jobId) {
 
-        User user = userRepo.findById(userId).orElseThrow();
-        Job job = jobRepo.findById(jobId).orElseThrow();
+        User user = userRepo.findById(userId).orElse(null);
+        Job job = jobRepo.findById(jobId).orElse(null);
+
+        if (user == null || job == null) {
+            throw new RuntimeException("User or Job not found");
+        }
 
         Application app = new Application();
         app.setUser(user);

@@ -22,6 +22,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public String login(@RequestParam String email, @RequestParam String password) {
+
         Optional<User> user = userService.login(email, password);
 
         return user.isPresent() ? "Login Successful" : "Invalid Credentials";
